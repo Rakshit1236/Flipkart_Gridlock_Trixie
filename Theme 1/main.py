@@ -170,7 +170,10 @@ def main():
     print()
 
     print("[VISUALIZATION] Generating maps and charts...")
+    from src.visualization import create_predictions_heatmap
     generate_all_visualizations(df_clustered, profiles, impact_df, priority_df)
+    if len(predictions) > 0:
+        create_predictions_heatmap(predictions)
     print()
 
     print("[REPORT] Generating dispatch report...")

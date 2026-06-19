@@ -7,6 +7,7 @@ import glob
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from src.config import REPORT_DIR, HEATMAP_DIR, PRED_DIR, OUTPUT_DIR
+from src.visualization import create_predictions_heatmap
 
 st.set_page_config(page_title="AI Parking Intelligence", layout="wide", page_icon="🅿")
 st.title("AI-Driven Illegal Parking Intelligence System")
@@ -95,9 +96,15 @@ with tab5:
 
     pred_files = sorted(glob.glob(os.path.join(PRED_DIR, "predictions_*.csv")))
     if pred_files:
-        st.subheader("Tomorrow's Predictions — Where Traffic Will Be Affected")
+        st.subheader("Predictions Heatmap — Tomorrow's High-Risk Locations")
         preds = pd.read_csv(pred_files[-1])
-
+        
+        # Generate and display predictions heatmap
+        heatmap_path = create_predictions_heatmap(preds)
+        with open(heatmap_path, "r") as f:
+            st.iframe(f.read(), height=600)
+        
+        st.subheader("Tomorrow's Predictions — Where Traffic Will Be Affected")
         top_active = preds[preds["activation_probability"] >= 0.5].copy()
         if len(top_active) > 0:
             st.warning("{} hotspots predicted to be ACTIVE tomorrow (>= 50% probability)".format(len(top_active)))

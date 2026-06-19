@@ -175,6 +175,64 @@ def create_priority_bar_chart(priority_df, output_path=None):
     return output_path
 
 
+def create_predictions_heatmap(preds, output_path=None):
+    if output_path is None:
+        output_path = os.path.join(HEATMAP_DIR, "predictions_heatmap.html")
+
+    print("[viz] Creating predictions heatmap...")
+    m = folium.Map(location=[12.9716, 77.5946], zoom_start=12, tiles="CartoDB positron")
+
+    colormap = cm.LinearColormap(
+        colors=["yellow", "orange", "red"],
+        vmin=0.5,
+        vmax=1.0,
+        caption="Activation Probability"
+    )
+    colormap.add_to(m)
+
+    for _, row in preds.iterrows():
+        prob = row.get("activation_probability", 0)
+        if prob < 0.3:
+            continue
+
+        label = row.get("label", "Cluster " + str(int(row.get("cluster_id", 0))))
+        lat = row.get("centroid_lat", 12.9716)
+        lon = row.get("centroid_lon", 77.5946)
+        est = int(row.get("estimated_violations_tomorrow", 0))
+        speed_drop = row.get("worst_speed_drop_pct", 0)
+        vtype = row.get("dominant_violation", "N/A")
+        peak = row.get("peak_hours", "N/A")
+        sev = row.get("impact_severity", "N/A")
+
+        color = colormap(prob)
+        popup_html = (
+            "<div style='width:280px'>"
+            "<h4>{}</h4>"
+            "<b>Activation Probability:</b> {:.0f}%<br>"
+            "<b>Est. Violations Tomorrow:</b> {}<br>"
+            "<b>Speed Impact:</b> -{:.0f}%<br>"
+            "<b>Violation Type:</b> {}<br>"
+            "<b>Peak Hours:</b> {}<br>"
+            "<b>Severity:</b> {}"
+            "</div>"
+        ).format(label, prob * 100, est, speed_drop, vtype, peak, sev)
+
+        radius = max(8, prob * 25)
+        folium.CircleMarker(
+            location=[lat, lon],
+            radius=radius,
+            color=color,
+            fill=True,
+            fill_color=color,
+            fill_opacity=0.7,
+            popup=folium.Popup(popup_html, max_width=300),
+        ).add_to(m)
+
+    m.save(output_path)
+    print("  Saved to {}".format(output_path))
+    return output_path
+
+
 def generate_all_visualizations(df, cluster_profiles, impact_df, priority_df):
     print("[viz] Generating all visualizations...")
     create_hotspot_heatmap(cluster_profiles)
