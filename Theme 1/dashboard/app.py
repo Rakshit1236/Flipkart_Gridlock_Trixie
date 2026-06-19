@@ -95,7 +95,40 @@ with tab5:
 
     pred_files = sorted(glob.glob(os.path.join(PRED_DIR, "predictions_*.csv")))
     if pred_files:
-        st.subheader("Tomorrow's Predictions")
+        st.subheader("Tomorrow's Predictions — Where Traffic Will Be Affected")
         preds = pd.read_csv(pred_files[-1])
-        display_pred = [c for c in ["cluster_id", "activation_probability", "violation_count"] if c in preds.columns]
-        st.dataframe(preds[display_pred].head(10), width="stretch")
+
+        top_active = preds[preds["activation_probability"] >= 0.5].copy()
+        if len(top_active) > 0:
+            st.warning("{} hotspots predicted to be ACTIVE tomorrow (>= 50% probability)".format(len(top_active)))
+
+            for _, row in top_active.head(15).iterrows():
+                label = row.get("label", "Cluster " + str(int(row["cluster_id"])))
+                prob = row["activation_probability"]
+                est = int(row.get("estimated_violations_tomorrow", 0))
+                peak = row.get("peak_hours", "N/A")
+                vtype = row.get("dominant_violation", "N/A")
+                speed_drop = row.get("worst_speed_drop_pct", 0)
+                sev = row.get("impact_severity", "N/A")
+
+                col_a, col_b, col_c, col_d = st.columns(4)
+                col_a.metric("Location", label)
+                col_b.metric("Activation Probability", "{:.0f}%".format(prob * 100))
+                col_c.metric("Est. Violations", str(est))
+                col_d.metric("Speed Impact", "-{:.0f}%".format(speed_drop) if speed_drop > 0 else "N/A")
+
+                detail_col1, detail_col2, detail_col3 = st.columns(3)
+                detail_col1.caption("Peak Hours: {}".format(peak))
+                detail_col2.caption("Violation Type: {}".format(vtype))
+                detail_col3.caption("Severity: {}".format(sev))
+                st.divider()
+        else:
+            st.info("No hotspots predicted to be highly active tomorrow.")
+
+        show_all = st.checkbox("Show all predicted hotspots")
+        if show_all:
+            display_pred = [c for c in ["label", "activation_probability", "estimated_violations_tomorrow",
+                                         "violation_count", "dominant_violation", "peak_hours",
+                                         "impact_severity", "worst_speed_drop_pct"]
+                           if c in preds.columns]
+            st.dataframe(preds[display_pred], width="stretch")

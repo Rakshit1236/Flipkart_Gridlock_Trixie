@@ -94,7 +94,7 @@ def train_predictor(feature_df):
     return model, available_cols, scores.mean()
 
 
-def predict_tomorrow(feature_df, model, feature_cols):
+def predict_tomorrow(feature_df, model, feature_cols, cluster_profiles):
     print("[predictive] Predicting tomorrow's hotspots...")
 
     latest = feature_df.sort_values("date").groupby("cluster_id").last().reset_index()
@@ -103,11 +103,26 @@ def predict_tomorrow(feature_df, model, feature_cols):
 
     X_pred = latest[feature_cols].fillna(0)
     latest["activation_probability"] = model.predict_proba(X_pred)[:, 1]
+
+    profile_cols = ["cluster_id", "label", "centroid_lat", "centroid_lon",
+                    "total_violations", "unique_days", "chronic",
+                    "peak_hours", "peak_day", "dominant_violation",
+                    "avg_duration_minutes", "avg_severity"]
+    available_profile = [c for c in profile_cols if c in cluster_profiles.columns]
+    latest = latest.merge(cluster_profiles[available_profile], on="cluster_id", how="left")
+
+    latest["estimated_violations_tomorrow"] = (
+        latest["activation_probability"] * latest["violation_count"]
+    ).round(0).astype(int)
+
     latest = latest.sort_values("activation_probability", ascending=False)
 
     print("  Top 10 predicted active hotspots tomorrow:")
     for _, row in latest.head(10).iterrows():
-        print("    Cluster {}: {:.0%} probability".format(row["cluster_id"], row["activation_probability"]))
+        label = row.get("label", "Cluster " + str(row["cluster_id"]))
+        prob = row["activation_probability"]
+        est = row["estimated_violations_tomorrow"]
+        print("    {} - {:.0%} probability, ~{} violations expected".format(label, prob, est))
 
     return latest
 
@@ -116,7 +131,7 @@ def run_prediction(df, cluster_profiles):
     t0 = time.time()
     feature_df = build_prediction_features(df, cluster_profiles)
     model, feature_cols, auc = train_predictor(feature_df)
-    predictions = predict_tomorrow(feature_df, model, feature_cols)
+    predictions = predict_tomorrow(feature_df, model, feature_cols, cluster_profiles)
     t1 = time.time()
     print("[predictive] Total pipeline: {:.1f}s".format(t1 - t0))
     return predictions, model, feature_cols, auc

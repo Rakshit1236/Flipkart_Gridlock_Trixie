@@ -3,43 +3,43 @@
    Date: 2026-06-20 (Saturday)
 ============================================================
 
-#1  PRIORITY SCORE: 73.1/100
-    Location: BTP040 - Elite Junction
-    Action:  Send enforcement team to BTP040 - Elite Junction at 3:00
+#1  PRIORITY SCORE: 61.2/100
+    Location: BTP135 - UCO Bank Junction
+    Action:  Send enforcement team to BTP135 - UCO Bank Junction at 11:00
     Reason:  Illegal parking there is currently dropping average traffic
              speed by 90%. NO PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 763 total, 66 active days
+    Violations: 113 total, 34 active days
 
-#2  PRIORITY SCORE: 70.9/100
-    Location: BTP044 - Sagar Theatre Junction
-    Action:  Send enforcement team to BTP044 - Sagar Theatre Junction at 0:00
+#2  PRIORITY SCORE: 60.8/100
+    Location: MBT Road
+    Action:  Send enforcement team to MBT Road at 19:00
     Reason:  Illegal parking there is currently dropping average traffic
              speed by 90%. WRONG PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 144 total, 54 active days
+    Violations: 1192 total, 97 active days
 
-#3  PRIORITY SCORE: 70.7/100
-    Location: Pusa Thippasandra Main Road
-    Action:  Send enforcement team to Pusa Thippasandra Main Road at 2:00
+#3  PRIORITY SCORE: 59.0/100
+    Location: BTP137 - Madiwala Traffic PS Junction
+    Action:  Send enforcement team to BTP137 - Madiwala Traffic PS Junction at 18:00
     Reason:  Illegal parking there is currently dropping average traffic
              speed by 90%. NO PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 594 total, 53 active days
+    Violations: 37 total, 22 active days
 
-#4  PRIORITY SCORE: 70.6/100
-    Location: Sri Venkataranga Ayangar Road
-    Action:  Send enforcement team to Sri Venkataranga Ayangar Road at 0:00
+#4  PRIORITY SCORE: 58.4/100
+    Location: BTP082 - KR Market Junction
+    Action:  Send enforcement team to BTP082 - KR Market Junction at 19:00
     Reason:  Illegal parking there is currently dropping average traffic
              speed by 90%. WRONG PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 421 total, 52 active days
+    Violations: 213 total, 51 active days
 
-#5  PRIORITY SCORE: 70.3/100
+#5  PRIORITY SCORE: 58.3/100
     Location: 80 Feet Ring Road
     Action:  Send enforcement team to 80 Feet Ring Road at 4:00
     Reason:  Illegal parking there is currently dropping average traffic
@@ -48,16 +48,7 @@
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
     Violations: 692 total, 83 active days
 
-#6  PRIORITY SCORE: 70.0/100
-    Location: Outer Ring Road
-    Action:  Send enforcement team to Outer Ring Road at 1:00
-    Reason:  Illegal parking there is currently dropping average traffic
-             speed by 90%. NO PARKING violations
-             are blocking an estimated 0 lanes.
-    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 385 total, 49 active days
-
-#7  PRIORITY SCORE: 69.7/100
+#6  PRIORITY SCORE: 57.7/100
     Location: BTP051 - Safina Plaza Junction
     Action:  Send enforcement team to BTP051 - Safina Plaza Junction at 4:00
     Reason:  Illegal parking there is currently dropping average traffic
@@ -66,25 +57,25 @@
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
     Violations: 196 total, 80 active days
 
-#8  PRIORITY SCORE: 69.6/100
-    Location: Domlur Inner Ring Road
-    Action:  Send enforcement team to Domlur Inner Ring Road at 2:00
+#7  PRIORITY SCORE: 57.5/100
+    Location: BTP040 - Elite Junction
+    Action:  Send enforcement team to BTP040 - Elite Junction at 4:00
     Reason:  Illegal parking there is currently dropping average traffic
-             speed by 90%. NO PARKING violations
+             speed by 90%. WRONG PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 167 total, 47 active days
+    Violations: 430 total, 79 active days
 
-#9  PRIORITY SCORE: 69.5/100
-    Location: BTP218 - Syndicate Bank Junction
-    Action:  Send enforcement team to BTP218 - Syndicate Bank Junction at 6:00
+#8  PRIORITY SCORE: 57.5/100
+    Location: BTP040 - Elite Junction
+    Action:  Send enforcement team to BTP040 - Elite Junction at 3:00
     Reason:  Illegal parking there is currently dropping average traffic
-             speed by 90%. NO PARKING violations
+             speed by 90%. WRONG PARKING violations
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
-    Violations: 168 total, 46 active days
+    Violations: 934 total, 79 active days
 
-#10  PRIORITY SCORE: 69.5/100
+#9  PRIORITY SCORE: 57.5/100
     Location: BTP211 - Central Street Junction
     Action:  Send enforcement team to BTP211 - Central Street Junction at 4:00
     Reason:  Illegal parking there is currently dropping average traffic
@@ -92,6 +83,15 @@
              are blocking an estimated 0 lanes.
     Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
     Violations: 1160 total, 79 active days
+
+#10  PRIORITY SCORE: 57.3/100
+    Location: BTP057 - Anand Rao Junction
+    Action:  Send enforcement team to BTP057 - Anand Rao Junction at 3:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 675 total, 78 active days
 
 ============================================================
    TOP PREDICTED ACTIVE HOTSPOTS TOMORROW
@@ -106,5 +106,5 @@
 ------------------------------------------------------------
    - Total vehicle-hours lost: 0
    - Average speed reduction across hotspots: 89%
-   - Worst hotspot: BTP040 - Elite Junction (-90% speed)
+   - Worst hotspot: BTP135 - UCO Bank Junction (-90% speed)
 ============================================================
