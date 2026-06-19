@@ -3,10 +3,7 @@
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_DIR = os.path.join(BASE_DIR, "data")
 OUTPUT_DIR = os.path.join(BASE_DIR, "output")
-RAW_CSV = os.path.join(
-    r"C:\Users\raksh\Desktop\PROJECT\Flipkart",
-    "jan to may police violation_anonymized791b166.csv",
-)
+RAW_CSV = os.path.join(BASE_DIR, "jan to may police violation_anonymized791b166.csv")
 
 HEATMAP_DIR = os.path.join(OUTPUT_DIR, "heatmaps")
 REPORT_DIR = os.path.join(OUTPUT_DIR, "reports")
