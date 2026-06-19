@@ -21,11 +21,6 @@ python main.py
 streamlit run dashboard/app.py
 ```
 
-### Traffic Gridlock (Trixie)
-**[Trafic _Gridlock/](Trafic%20_Gridlock/)** — Travel demand prediction using LightGBM/XGBoost/CatBoost ensemble.
-
-### Demo Theme 3
-**[Demo theme 3/](Demo%20theme%203/)** — Camera-based license plate detection.
 
 ## Dataset
 - `jan to may police violation_anonymized791b166.csv` — 298K illegal parking violations from Bengaluru (Nov 2023 – Mar 2024)
