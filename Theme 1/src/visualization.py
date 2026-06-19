@@ -175,6 +175,66 @@ def create_priority_bar_chart(priority_df, output_path=None):
     return output_path
 
 
+def create_predictions_heatmap(predictions_df, output_path=None):
+    if output_path is None:
+        output_path = os.path.join(HEATMAP_DIR, "predictions_heatmap.html")
+
+    print("[viz] Creating predictions heatmap...")
+    m = folium.Map(location=[12.9716, 77.5946], zoom_start=12, tiles="CartoDB positron")
+
+    colormap = cm.LinearColormap(
+        colors=["green", "yellow", "orange", "red"],
+        vmin=0,
+        vmax=1.0,
+        caption="Activation Probability"
+    )
+    colormap.add_to(m)
+
+    for _, row in predictions_df.iterrows():
+        activation_prob = row.get("activation_probability", 0)
+        color = colormap(activation_prob)
+        
+        # Build popup information
+        label = row.get("label", "Cluster " + str(int(row.get("cluster_id", 0))))
+        est_violations = int(row.get("estimated_violations_tomorrow", 0))
+        peak_hours = row.get("peak_hours", "N/A")
+        dominant_viol = row.get("dominant_violation", "N/A")
+        severity = row.get("impact_severity", "N/A")
+        speed_drop = row.get("worst_speed_drop_pct", 0)
+        
+        popup_html = (
+            "<div style='width:280px'>"
+            "<h4>{}</h4>"
+            "<b>Activation Probability:</b> {:.1f}%<br>"
+            "<b>Est. Violations Tomorrow:</b> {}<br>"
+            "<b>Peak Hours:</b> {}<br>"
+            "<b>Dominant Type:</b> {}<br>"
+            "<b>Impact Severity:</b> {}<br>"
+            "<b>Speed Drop Impact:</b> {:.0f}%"
+            "</div>"
+        ).format(
+            label, activation_prob * 100, est_violations,
+            peak_hours, dominant_viol, severity, speed_drop
+        )
+        
+        # Circle size based on estimated violations
+        radius = max(5, min(est_violations / 5, 25))
+        
+        folium.CircleMarker(
+            location=[row["centroid_lat"], row["centroid_lon"]],
+            radius=radius,
+            color=color,
+            fill=True,
+            fill_color=color,
+            fill_opacity=0.7,
+            popup=folium.Popup(popup_html, max_width=300),
+        ).add_to(m)
+
+    m.save(output_path)
+    print("  Saved to {}".format(output_path))
+    return output_path
+
+
 def generate_all_visualizations(df, cluster_profiles, impact_df, priority_df):
     print("[viz] Generating all visualizations...")
     create_hotspot_heatmap(cluster_profiles)
