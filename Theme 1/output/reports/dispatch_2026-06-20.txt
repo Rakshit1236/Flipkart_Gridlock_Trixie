@@ -1,0 +1,110 @@
+============================================================
+   DAILY ENFORCEMENT DISPATCH RECOMMENDATION
+   Date: 2026-06-20 (Saturday)
+============================================================
+
+#1  PRIORITY SCORE: 73.1/100
+    Location: BTP040 - Elite Junction
+    Action:  Send enforcement team to BTP040 - Elite Junction at 3:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. NO PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 763 total, 66 active days
+
+#2  PRIORITY SCORE: 70.9/100
+    Location: BTP044 - Sagar Theatre Junction
+    Action:  Send enforcement team to BTP044 - Sagar Theatre Junction at 0:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 144 total, 54 active days
+
+#3  PRIORITY SCORE: 70.7/100
+    Location: Pusa Thippasandra Main Road
+    Action:  Send enforcement team to Pusa Thippasandra Main Road at 2:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. NO PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 594 total, 53 active days
+
+#4  PRIORITY SCORE: 70.6/100
+    Location: Sri Venkataranga Ayangar Road
+    Action:  Send enforcement team to Sri Venkataranga Ayangar Road at 0:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 421 total, 52 active days
+
+#5  PRIORITY SCORE: 70.3/100
+    Location: 80 Feet Ring Road
+    Action:  Send enforcement team to 80 Feet Ring Road at 4:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 692 total, 83 active days
+
+#6  PRIORITY SCORE: 70.0/100
+    Location: Outer Ring Road
+    Action:  Send enforcement team to Outer Ring Road at 1:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. NO PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 385 total, 49 active days
+
+#7  PRIORITY SCORE: 69.7/100
+    Location: BTP051 - Safina Plaza Junction
+    Action:  Send enforcement team to BTP051 - Safina Plaza Junction at 4:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 196 total, 80 active days
+
+#8  PRIORITY SCORE: 69.6/100
+    Location: Domlur Inner Ring Road
+    Action:  Send enforcement team to Domlur Inner Ring Road at 2:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. NO PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 167 total, 47 active days
+
+#9  PRIORITY SCORE: 69.5/100
+    Location: BTP218 - Syndicate Bank Junction
+    Action:  Send enforcement team to BTP218 - Syndicate Bank Junction at 6:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. NO PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 168 total, 46 active days
+
+#10  PRIORITY SCORE: 69.5/100
+    Location: BTP211 - Central Street Junction
+    Action:  Send enforcement team to BTP211 - Central Street Junction at 4:00
+    Reason:  Illegal parking there is currently dropping average traffic
+             speed by 90%. WRONG PARKING violations
+             are blocking an estimated 0 lanes.
+    Impact:  Severity=CRITICAL, Vehicle-hours lost today: 0.0
+    Violations: 1160 total, 79 active days
+
+============================================================
+   TOP PREDICTED ACTIVE HOTSPOTS TOMORROW
+------------------------------------------------------------
+    Cluster 304: 96% probability
+    Cluster 594: 95% probability
+    Cluster 641: 88% probability
+    Cluster 382: 87% probability
+    Cluster 724: 86% probability
+
+   ESTIMATED CITY-WIDE IMPACT TODAY
+------------------------------------------------------------
+   - Total vehicle-hours lost: 0
+   - Average speed reduction across hotspots: 89%
+   - Worst hotspot: BTP040 - Elite Junction (-90% speed)
+============================================================
