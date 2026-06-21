@@ -4,8 +4,6 @@ __pycache__/
 .pytest_cache/
 .DS_Store
 output/
-*.csv
-.streamlit/secrets.toml
 *.egg-info/
 dist/
 build/
